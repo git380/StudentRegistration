@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>学籍番号 {{ student_id }} でログインしました。</h1>
+<form action="/finish" method="post">
+    <fieldset>
+        <legend>学生情報</legend>
+        <div>
+            <label for="last-name">（漢字）姓</label>
+            <input type="text" id="last-name" name="last-name" required>
+            <label for="first-name">名</label>
+            <input type="text" id="first-name" name="first-name" required>
+        </div>
+        <div>
+            <label for="last-name-kana">（ふりがな）姓</label>
+            <input type="text" id="last-name-kana" name="last-name-kana" required>
+            <label for="first-name-kana">名</label>
+            <input type="text" id="first-name-kana" name="first-name-kana" required>
+        </div>
+        <div>
+            <label for="last-name-roma">（ローマ字ふりがな）姓</label>
+            <input type="text" id="last-name-roma" name="last-name-roma" required>
+            <label for="first-name-roma">名</label>
+            <input type="text" id="first-name-roma" name="first-name-roma" required>
+        </div>
+        <div>
+            <label for="birthday">生年月日</label>
+            <input type="date" id="birthday" name="birthday" required>
+        </div>
+        <div>
+            <label for="gender">性別</label>
+            <select id="gender" name="gender" required>
+                <option value="">選択してください</option>
+                <option value="male">男性</option>
+                <option value="female">女性</option>
+                <option value="other">その他</option>
+            </select>
+        </div>
+        <div>
+            <label for="hometown">本籍</label>
+            <input type="text" id="hometown" name="hometown" required>
+        </div>
+        <fieldset>
+            <legend>住所</legend>
+            <div>
+                <label for="postal-first-code">郵便番号</label>
+                <input type="text" id="postal-first-code" name="postal-code" required>-
+                <input type="text" id="postal-last-code" name="postal-code" required>
+                <button type="button">住所自動入力</button>
+            </div>
+            <div>
+                <label for="prefecture">県</label>
+                <input type="text" id="prefecture" name="prefecture" required>
+            </div>
+            <div>
+                <label for="city">市や区</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <div>
+                <label for="address">番地</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div>
+                <label for="building">マンション名</label>
+                <input type="text" id="building" name="building">
+            </div>
+        </fieldset>
+        <div>
+            <label for="phone-home">自宅電話番号</label>
+            <input type="tel" id="phone-home" name="phone-home" required>
+        </div>
+        <div>
+            <label for="phone-mobile">携帯電話番号</label>
+            <input type="tel" id="phone-mobile" name="phone-mobile" required>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>保護者情報</legend>
+        <div>
+            <label for="guardian-name">氏名（漢字）</label>
+            <input type="text" id="guardian-name" name="guardian-name" required>
+        </div>
+        <div>
+            <label for="guardian-name-kana">氏名（ふりがな）</label>
+            <input type="text" id="guardian-name-kana" name="guardian-name-kana" required>
+        </div>
+        <div>
+            <label for="guardian-address">住所</label>
+            <input type="text" id="guardian-address" name="guardian-address" required>
+        </div>
+        <div>
+            <label for="guardian-phone">電話番号</label>
+            <input type="tel" id="guardian-phone" name="guardian-phone" required>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>緊急連絡先情報</legend>
+        <div>
+            <label for="emergency-contact-name">緊急連絡先名</label>
+            <input type="text" id="emergency-contact-name" name="emergency-contact-name" required>
+        </div>
+        <div>
+            <label for="emergency-contact-phone">電話番号</label>
+            <input type="tel" id="emergency-contact-phone" name="emergency-contact-phone" required>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>家族構成</legend>
+        <table>
+            <thead>
+            <tr>
+                <th>氏名</th>
+                <th>続柄</th>
+                <th>年齢</th>
+                <th>勤務先</th>
+                <th>居住</th>
+                <th>備考</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="text" name="family-name-1"></td>
+                <td><input type="text" name="family-relationship-1"></td>
+                <td><input type="text" name="family-age-1"></td>
+                <td><input type="text" name="family-workplace-1"></td>
+                <td>
+                    <select name="family-residence-1">
+                        <option value="">選択してください</option>
+                        <option value="同居">同居</option>
+                        <option value="非同居">非同居</option>
+                    </select>
+                </td>
+                <td><input type="text" name="family-remark-1"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="family-name-2"></td>
+                <td><input type="text" name="family-relationship-2"></td>
+                <td><input type="text" name="family-age-2"></td>
+                <td><input type="text" name="family-workplace-2"></td>
+                <td>
+                    <select name="family-residence-2">
+                        <option value="">選択してください</option>
+                        <option value="同居">同居</option>
+                        <option value="非同居">非同居</option>
+                    </select>
+                </td>
+                <td><input type="text" name="family-remark-2"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="family-name-3"></td>
+                <td><input type="text" name="family-relationship-3"></td>
+                <td><input type="text" name="family-age-3"></td>
+                <td><input type="text" name="family-workplace-3"></td>
+                <td>
+                    <select name="family-residence-3">
+                        <option value="">選択してください</option>
+                        <option value="同居">同居</option>
+                        <option value="非同居">非同居</option>
+                    </select>
+                </td>
+                <td><input type="text" name="family-remark-3"></td>
+            </tr>
+            </tbody>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend>学歴</legend>
+        <table>
+            <thead>
+            <tr>
+                <th>学校名</th>
+                <th>入学年月</th>
+                <th>卒業年月</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="text" name="school-name-1"></td>
+                <td><input type="month" name="school-enrollment-date-1"></td>
+                <td><input type="month" name="school-graduation-date-1"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="school-name-2"></td>
+                <td><input type="month" name="school-enrollment-date-2"></td>
+                <td><input type="month" name="school-graduation-date-2"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="school-name-3"></td>
+                <td><input type="month" name="school-enrollment-date-3"></td>
+                <td><input type="month" name="school-graduation-date-3"></td>
+            </tr>
+            </tbody>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend>職歴</legend>
+        <table>
+            <thead>
+            <tr>
+                <th>会社名</th>
+                <th>入社年月</th>
+                <th>退職年月</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="text" name="company-name-1"></td>
+                <td><input type="month" name="company-enrollment-date-1"></td>
+                <td><input type="month" name="company-resignation-date-1"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="company-name-2"></td>
+                <td><input type="month" name="company-enrollment-date-2"></td>
+                <td><input type="month" name="company-resignation-date-2"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="company-name-3"></td>
+                <td><input type="month" name="company-enrollment-date-3"></td>
+                <td><input type="month" name="company-resignation-date-3"></td>
+            </tr>
+            </tbody>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend>健康情報・趣味・特技</legend>
+        <div>
+            <label for="health">健康状況</label>
+            <textarea id="health" name="health" rows="5"></textarea>
+        </div>
+        <div>
+            <label for="hobby">趣味</label>
+            <textarea id="hobby" name="hobby" rows="5"></textarea>
+        </div>
+        <div>
+            <label for="skill">特技</label>
+            <textarea id="skill" name="skill" rows="5"></textarea>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>免許・資格等</legend>
+        <table>
+            <thead>
+            <tr>
+                <th>取得年月</th>
+                <th>免許・資格名称</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="month" name="license-date-1"></td>
+                <td><input type="text" name="license-name-1"></td>
+            </tr>
+            <tr>
+                <td><input type="month" name="license-date-2"></td>
+                <td><input type="text" name="license-name-2"></td>
+            </tr>
+            <tr>
+                <td><input type="month" name="license-date-3"></td>
+                <td><input type="text" name="license-name-3"></td>
+            </tr>
+            </tbody>
+        </table>
+    </fieldset>
+
+    <input type="submit" value="送信">
+</form>
+</body>
+</html>
